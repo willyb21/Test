@@ -1,0 +1,37 @@
+<div class="workspace-container">
+<div class="workspace">
+  <div id="data" data-project-id="<%= params[:id] %>"></div>
+
+  <%= render "editor", direction: "left", type: "html", options: ["html", "haml"], anim: 3 %>
+  <%= render "editor", direction: "left", type: "css", options: ["css", "sass"], anim: 4 %>
+  <%= render "editor", direction: "right", type: "js", options: ["javascript", "coffeescript"], anim: 5 %>
+
+  <div class="divider">
+    <div class="selections">
+      <table border="0">
+        <tr>
+          <td>
+            <button type="button">Submit</button>&nbsp;
+          </td>
+          <td nowrap>
+            &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="autorun" checked>Auto Submit?&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+          <td nowrap>
+            <a href="<%= project_url(params[:id]) %>" target="_blank">
+              <button type="button">Open in new window</button>
+            </a>
+          </td>
+        </td>
+        <!--<form action="<%#= project_url(params[:id]) %>" method="get">
+          <input type="submit" value="Open in new window">
+        <form>-->
+        <tr>
+      </table>
+    </div>
+  </div>
+  <div id="reloader">
+    <iframe src="javascript:false;" name="code-render" scrolling="true">
+    </iframe>
+  </div>
+</div>
+</div>
